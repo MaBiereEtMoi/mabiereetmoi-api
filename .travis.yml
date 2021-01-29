@@ -1,0 +1,12 @@
+language: java
+jdk:
+  - oraclejdk15
+script:
+  - "./mvnw clean install -DskipTests"
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+deploy:
+  provider: heroku
+  app: mabiereetmoi-api
+  api_key: $HEROKU_TOKEN
