@@ -10,3 +10,7 @@ deploy:
   provider: heroku
   app: mabiereetmoi-api
   api_key: $HEROKU_TOKEN
+
+branche:
+  only:
+    - master
