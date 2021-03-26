@@ -19,7 +19,9 @@ public class User {
 
     @Id
     private String uid;
-    private String name;
+    private String firstname;
+    private String lastname;
+    private String username;
     private String email;
     private String picture;
     private String issuer;
