@@ -3,6 +3,8 @@ package com.mabiereetmoi.api.beer;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class BeerService {
@@ -15,5 +17,9 @@ public class BeerService {
 
     public Beer findById(Long id){
         return beerRepository.findById(id).get();
+    }
+
+    public List<Beer> findAll(){
+        return beerRepository.findAll();
     }
 }
