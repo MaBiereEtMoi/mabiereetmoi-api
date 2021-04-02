@@ -23,6 +23,7 @@ public class BeerController {
     }
 
     @GetMapping
+    @CrossOrigin
     public List<Beer> getAllBeers(){
         return beerService.findAll();
     }
