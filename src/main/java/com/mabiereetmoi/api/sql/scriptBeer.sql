@@ -76,3 +76,5 @@ values(12,'kwak',4,8.4,
        'Depuis sa fondation en 1791 par Evarist Bosteels, la brasserie Bosteels est devenue la définition de l''entreprise familiale. Dans la même famille depuis plus de 200 ans, la brasserie a
 été dirigée par sept générations de la famille Bosteels, brassant certaines bières les plus emblématiques de la Belgique.',
        now(),2);
+
+update beer set image = lo_import('C:\Users\gabri\mabiereetmoi\beer_images\kasteel_rouge.jpg') where id_beer = 2;

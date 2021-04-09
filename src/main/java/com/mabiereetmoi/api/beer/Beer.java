@@ -24,12 +24,17 @@ public class Beer {
 
     private Double degreeAlcohol;
 
+    @Column(length=1000)
     private String description;
 
     private Date createDate;
 
     @ManyToOne
     private CategoryBeer category;
+
+    @Lob
+    @Column
+    private byte[] image;
 
 
 }
