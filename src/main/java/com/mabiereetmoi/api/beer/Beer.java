@@ -37,8 +37,4 @@ public class Beer {
     @Column
     private byte[] image;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<BarCode> barCodes;
-
-
 }
