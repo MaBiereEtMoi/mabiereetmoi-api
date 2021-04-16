@@ -1,5 +1,6 @@
 package com.mabiereetmoi.api.beer;
 
+import com.mabiereetmoi.api.barcode.BarCode;
 import com.mabiereetmoi.api.comment.Comment;
 import lombok.Data;
 
@@ -35,6 +36,9 @@ public class Beer {
     @Lob
     @Column
     private byte[] image;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<BarCode> barCodes;
 
 
 }

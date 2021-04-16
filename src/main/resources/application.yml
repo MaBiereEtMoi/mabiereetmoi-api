@@ -34,6 +34,7 @@ security:
     - http://localhost:8100
     - http://192.168.1.20:8100
     - capacitor://localhost
+    - http://localhost
   allowed-methods:
     - GET
     - POST
