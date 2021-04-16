@@ -14,6 +14,15 @@ insert into beer(id_beer,name_beer,note_avg,degree_alcohol,description,create_da
 insert into beer(id_beer,name_beer,note_avg,degree_alcohol,description,create_date,category_id_category) values(2,'Kasteel Rouge',5,8,
                                                                                                     'La Kasteel Rouge est un mélange unique de Kasteel Donker et de liqueur de cerises. Cette bière fruitée se savoure en cocktail ou apéritif sur une terrasse ensoleillée. Une bière pour les amateurs des arômes puissants et sucrés de cerises.',now(),1);
 
+insert into bar_code values ('5411081003654');
+insert into beer_bar_codes values(2,'5411081003654');
+insert into bar_code values ('5411081003661');
+insert into beer_bar_codes values(2,'5411081003661');
+insert into bar_code values ('5411081003425');
+insert into beer_bar_codes values(2,'5411081003425');
+insert into bar_code values ('5411081007225');
+insert into beer_bar_codes values(2,'5411081007225');
+
 insert into beer(id_beer,name_beer,note_avg,degree_alcohol,description,create_date,category_id_category)
 values(3,'Tripel Karmeliet',5,8.4,
        'La bière Tripel Karmeliet est l''un des grands classiques des bières belges. ' ||
@@ -77,4 +86,4 @@ values(12,'kwak',4,8.4,
 été dirigée par sept générations de la famille Bosteels, brassant certaines bières les plus emblématiques de la Belgique.',
        now(),2);
 
-update beer set image = lo_import('C:\Users\gabri\mabiereetmoi\beer_images\kasteel_rouge.jpg') where id_beer = 2;
+--update beer set image = lo_import('C:\Users\gabri\mabiereetmoi\beer_images\kasteel_rouge.jpg') where id_beer = 2;

@@ -11,7 +11,7 @@ public class BarCodeController {
 
     private final BarCodeService barCodeService;
 
-    @GetMapping
+    @GetMapping("/{barCode}")
     @CrossOrigin
     public Beer getBeerByBarcode(@PathVariable String barCode){
         return barCodeService.getBeerByBarCode(barCode);
