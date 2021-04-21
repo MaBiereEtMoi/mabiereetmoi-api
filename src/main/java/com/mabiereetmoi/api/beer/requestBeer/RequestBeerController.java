@@ -41,4 +41,11 @@ public class RequestBeerController {
         return ResponseEntity.ok(requestBeerService.findRequestBeerById(id));
     }
 
+    @PutMapping("/decline/{requestId}")
+    public ResponseEntity<RequestBeer> declineRequestBeer(@PathVariable("requestId") Long requestId) throws RequestBeerNotFound {
+        RequestBeer requestBeer = requestBeerService.findRequestBeerById(requestId);
+        requestBeer.setPending(false);
+        return ResponseEntity.ok(requestBeerService.saveRequestBeer(requestBeer));
+    }
+
 }

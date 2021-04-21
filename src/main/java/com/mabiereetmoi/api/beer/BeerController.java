@@ -1,6 +1,9 @@
 package com.mabiereetmoi.api.beer;
 
+import com.mabiereetmoi.api.barcode.BarCode;
+import com.mabiereetmoi.api.barcode.BarCodeService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,10 +14,21 @@ import java.util.List;
 public class BeerController {
 
     private final BeerService beerService;
+    private final BarCodeService barCodeService;
 
     @PostMapping
     public Beer saveBeer(@RequestBody Beer beer){
         return beerService.save(beer);
+    }
+
+    @PostMapping("/{barcode}")
+    public ResponseEntity<Beer> saveBeerWithBarcode(@PathVariable("barcode") String barcode, @RequestBody Beer beer) {
+        Beer beerSave = beerService.save(beer);
+        if (barcode != null) {
+            BarCode barCode = new BarCode(barcode, beerSave);
+            barCodeService.saveBarcode(barCode);
+        }
+        return ResponseEntity.ok(beerSave);
     }
 
     @GetMapping("/{id}")

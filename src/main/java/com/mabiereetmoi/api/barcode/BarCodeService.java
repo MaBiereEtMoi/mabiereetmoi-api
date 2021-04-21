@@ -13,4 +13,8 @@ public class BarCodeService {
     public Beer getBeerByBarCode(String barCode){
         return barCodeRepository.findById(barCode).get().getBeer();
     }
+
+    public BarCode saveBarcode(BarCode barCode) {
+        return barCodeRepository.save(barCode);
+    }
 }
