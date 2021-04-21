@@ -1,6 +1,6 @@
 package com.mabiereetmoi.api.beer;
 
-import com.mabiereetmoi.api.barcode.BarCode;
+import com.mabiereetmoi.api.beer.categoryBeer.CategoryBeer;
 import com.mabiereetmoi.api.comment.Comment;
 import lombok.Data;
 

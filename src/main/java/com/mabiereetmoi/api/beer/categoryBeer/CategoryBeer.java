@@ -1,4 +1,4 @@
-package com.mabiereetmoi.api.beer;
+package com.mabiereetmoi.api.beer.categoryBeer;
 
 import lombok.Data;
 
