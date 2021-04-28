@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 public class BeerDto {
 
-    private Long id_beer;
+    private Long idBeer;
     private String nameBeer;
     private List<Comment> comments;
     private Double note_avg;
@@ -23,5 +23,6 @@ public class BeerDto {
     private CategoryBeer category;
     private byte[] image;
     private boolean isFavorite;
+    private Integer nbFavorites;
 
 }

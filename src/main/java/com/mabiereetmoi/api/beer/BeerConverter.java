@@ -17,18 +17,19 @@ public class BeerConverter implements AbstractConverter<Beer, BeerDto> {
     @Override
     public BeerDto entityToDto(Beer entity) {
         FavoriteBeerId favoriteBeerId = new FavoriteBeerId();
-        favoriteBeerId.setBeer(entity.getId_beer());
+        favoriteBeerId.setBeer(entity.getIdBeer());
         favoriteBeerId.setUser(securityService.getUser().getUid());
         return BeerDto.builder()
                 .category(entity.getCategory())
                 .comments(entity.getComments())
                 .createDate(entity.getCreateDate())
                 .degreeAlcohol(entity.getDegreeAlcohol())
-                .id_beer(entity.getId_beer())
+                .idBeer(entity.getIdBeer())
                 .description(entity.getDescription())
                 .nameBeer(entity.getNameBeer())
                 .image(entity.getImage())
-                .isFavorite(favoriteBeerService.isFavorite(favoriteBeerId)).build();
+                .isFavorite(favoriteBeerService.isFavorite(favoriteBeerId))
+                .nbFavorites(favoriteBeerService.getNbFavorite(entity.getIdBeer())).build();
     }
 
     @Override

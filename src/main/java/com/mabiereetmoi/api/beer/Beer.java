@@ -14,7 +14,7 @@ public class Beer {
 
     @Id
     @GeneratedValue
-    private Long id_beer;
+    private Long idBeer;
 
     private String nameBeer;
 
