@@ -15,6 +15,7 @@ public class BeerController {
 
     private final BeerService beerService;
     private final BarCodeService barCodeService;
+    private final BeerConverter beerConverter;
 
     @PostMapping
     public Beer saveBeer(@RequestBody Beer beer){
@@ -32,13 +33,13 @@ public class BeerController {
     }
 
     @GetMapping("/{id}")
-    public Beer getBeerByid(@PathVariable Long id){
-        return beerService.findById(id);
+    public ResponseEntity<BeerDto> getBeerByid(@PathVariable Long id) throws BeerNotFoundException {
+        return ResponseEntity.ok(beerConverter.entityToDto(beerService.findById(id)));
     }
 
     @GetMapping
     @CrossOrigin
-    public List<Beer> getAllBeers(){
-        return beerService.findAll();
+    public List<BeerDto> getAllBeers(){
+        return beerConverter.listEntityToDto(beerService.findAll());
     }
 }

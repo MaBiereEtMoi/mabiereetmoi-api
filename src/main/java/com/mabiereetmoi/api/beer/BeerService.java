@@ -15,8 +15,8 @@ public class BeerService {
         return beerRepository.save(beer);
     }
 
-    public Beer findById(Long id){
-        return beerRepository.findById(id).get();
+    public Beer findById(Long id) throws BeerNotFoundException {
+        return beerRepository.findById(id).orElseThrow(() -> new BeerNotFoundException(id));
     }
 
     public List<Beer> findAll(){
