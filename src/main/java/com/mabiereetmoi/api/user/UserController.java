@@ -1,5 +1,6 @@
 package com.mabiereetmoi.api.user;
 
+import com.mabiereetmoi.api.beer.Beer;
 import com.mabiereetmoi.api.security.SecurityService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,5 +1,6 @@
 package com.mabiereetmoi.api.user;
 
+import com.mabiereetmoi.api.beer.Beer;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

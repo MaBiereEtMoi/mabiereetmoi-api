@@ -1,6 +1,7 @@
 package com.mabiereetmoi.api.beer;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 public class BeerController {
 
     private final BeerService beerService;
+    private final BeerConverter beerConverter;
 
     @PostMapping
     public Beer saveBeer(@RequestBody Beer beer){
@@ -18,13 +20,13 @@ public class BeerController {
     }
 
     @GetMapping("/{id}")
-    public Beer getBeerByid(@PathVariable Long id){
-        return beerService.findById(id);
+    public ResponseEntity<BeerDto> getBeerByid(@PathVariable Long id) throws BeerNotFoundException {
+        return ResponseEntity.ok(beerConverter.entityToDto(beerService.findById(id)));
     }
 
     @GetMapping
     @CrossOrigin
-    public List<Beer> getAllBeers(){
-        return beerService.findAll();
+    public List<BeerDto> getAllBeers(){
+        return beerConverter.listEntityToDto(beerService.findAll());
     }
 }
