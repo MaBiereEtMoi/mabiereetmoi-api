@@ -1,6 +1,8 @@
 package com.mabiereetmoi.api.barcode;
 
 import com.mabiereetmoi.api.beer.Beer;
+import com.mabiereetmoi.api.beer.BeerConverter;
+import com.mabiereetmoi.api.beer.BeerDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class BarCodeController {
 
     private final BarCodeService barCodeService;
+    private final BeerConverter beerConverter;
 
     @PostMapping
     public ResponseEntity<BarCode> saveBarcode(@RequestBody BarCode barCode) {
@@ -19,7 +22,7 @@ public class BarCodeController {
 
     @GetMapping("/{barCode}")
     @CrossOrigin
-    public Beer getBeerByBarcode(@PathVariable String barCode){
-        return barCodeService.getBeerByBarCode(barCode);
+    public BeerDto getBeerByBarcode(@PathVariable String barCode){
+        return beerConverter.entityToDto(barCodeService.getBeerByBarCode(barCode));
     }
 }

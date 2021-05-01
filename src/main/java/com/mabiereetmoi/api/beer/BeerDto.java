@@ -3,6 +3,7 @@ package com.mabiereetmoi.api.beer;
 import com.mabiereetmoi.api.beer.categoryBeer.CategoryBeer;
 import com.mabiereetmoi.api.comment.Comment;
 import com.mabiereetmoi.api.rating.Rating;
+import com.mabiereetmoi.api.rating.RatingDto;
 import lombok.Builder;
 import lombok.Data;
 
@@ -25,6 +26,6 @@ public class BeerDto {
     private byte[] image;
     private boolean isFavorite;
     private Integer nbFavorites;
-    private Rating myRate;
+    private RatingDto myRate;
 
 }

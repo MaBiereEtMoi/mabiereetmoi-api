@@ -4,6 +4,7 @@ import com.mabiereetmoi.api.converter.AbstractConverter;
 import com.mabiereetmoi.api.favoriteBeer.FavoriteBeerId;
 import com.mabiereetmoi.api.favoriteBeer.FavoriteBeerService;
 import com.mabiereetmoi.api.rating.Rating;
+import com.mabiereetmoi.api.rating.RatingConverter;
 import com.mabiereetmoi.api.rating.RatingId;
 import com.mabiereetmoi.api.rating.RatingService;
 import com.mabiereetmoi.api.security.SecurityService;
@@ -17,6 +18,7 @@ public class BeerConverter implements AbstractConverter<Beer, BeerDto> {
     private final FavoriteBeerService favoriteBeerService;
     private final SecurityService securityService;
     private final RatingService ratingService;
+    private final RatingConverter ratingConverter;
 
     @Override
     public BeerDto entityToDto(Beer entity) {
@@ -34,10 +36,11 @@ public class BeerConverter implements AbstractConverter<Beer, BeerDto> {
                 .idBeer(entity.getIdBeer())
                 .description(entity.getDescription())
                 .nameBeer(entity.getNameBeer())
+                .note_avg(ratingService.getAvgByBeer(entity.getIdBeer()))
                 .image(entity.getImage())
                 .isFavorite(favoriteBeerService.isFavorite(favoriteBeerId))
                 .nbFavorites(favoriteBeerService.getNbFavorite(entity.getIdBeer()))
-                .myRate(ratingService.getRating(ratingId)).build();
+                .myRate(ratingConverter.entityToDto(ratingService.getRating(ratingId))).build();
     }
 
     @Override
