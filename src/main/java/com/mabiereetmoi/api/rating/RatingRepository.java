@@ -12,4 +12,6 @@ public interface RatingRepository extends CrudRepository<Rating, RatingId> {
     @Query(value = "SELECT avg(r.rating) FROM Rating r WHERE r.beer.idBeer = ?1")
     Double averageByBeer(Long beerId);
 
+    List<Rating> findAllByBeerIdBeer(Long beerId);
+
 }
