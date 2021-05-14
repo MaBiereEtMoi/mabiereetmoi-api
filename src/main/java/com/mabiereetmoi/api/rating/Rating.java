@@ -31,9 +31,6 @@ public class Rating {
     @JoinColumn(name = "beer_id")
     private Beer beer;
 
-    @OneToMany
-    private List<Comment> comments;
-
     @ManyToMany
     private Set<User> like;
 

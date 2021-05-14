@@ -1,5 +1,6 @@
 package com.mabiereetmoi.api.rating;
 
+import com.mabiereetmoi.api.comment.CommentService;
 import com.mabiereetmoi.api.converter.AbstractConverter;
 import com.mabiereetmoi.api.security.SecurityService;
 import lombok.AllArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 public class RatingConverter implements AbstractConverter<Rating, RatingDto> {
 
     private final SecurityService securityService;
+    private final CommentService commentService;
 
     @Override
     public RatingDto entityToDto(Rating entity) {
@@ -18,7 +20,7 @@ public class RatingConverter implements AbstractConverter<Rating, RatingDto> {
         }
         return RatingDto.builder()
                 .beer(entity.getBeer())
-                .comments(entity.getComments())
+                .comments(commentService.findCommentsByRating(entity))
                 .createdAt(entity.getCreatedAt())
                 .like(entity.getLike())
                 .message(entity.getMessage())
