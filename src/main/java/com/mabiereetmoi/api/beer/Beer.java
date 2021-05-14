@@ -2,6 +2,7 @@ package com.mabiereetmoi.api.beer;
 
 import com.mabiereetmoi.api.beer.categoryBeer.CategoryBeer;
 import com.mabiereetmoi.api.comment.Comment;
+import com.mabiereetmoi.api.rating.Rating;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,9 +18,6 @@ public class Beer {
     private Long idBeer;
 
     private String nameBeer;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Comment> comments;
 
     private Double note_avg;
 
