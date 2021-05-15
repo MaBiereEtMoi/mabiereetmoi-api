@@ -1,5 +1,7 @@
 package com.mabiereetmoi.api.rating;
 
+import com.mabiereetmoi.api.comment.CommentController;
+import com.mabiereetmoi.api.comment.CommentConverter;
 import com.mabiereetmoi.api.comment.CommentService;
 import com.mabiereetmoi.api.converter.AbstractConverter;
 import com.mabiereetmoi.api.security.SecurityService;
@@ -12,6 +14,7 @@ public class RatingConverter implements AbstractConverter<Rating, RatingDto> {
 
     private final SecurityService securityService;
     private final CommentService commentService;
+    private final CommentConverter commentConverter;
 
     @Override
     public RatingDto entityToDto(Rating entity) {
@@ -20,7 +23,7 @@ public class RatingConverter implements AbstractConverter<Rating, RatingDto> {
         }
         return RatingDto.builder()
                 .beer(entity.getBeer())
-                .comments(commentService.findCommentsByRating(entity))
+                .comments(commentConverter.listEntityToDto(commentService.findCommentsByRating(entity)))
                 .createdAt(entity.getCreatedAt())
                 .like(entity.getLike())
                 .message(entity.getMessage())

@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -25,6 +26,9 @@ public class Comment {
 
     @ManyToOne
     private Rating rating;
+
+    @ManyToMany
+    private Set<User> like;
 
     private Long createdAt;
 

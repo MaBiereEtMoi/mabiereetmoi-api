@@ -1,31 +1,28 @@
-package com.mabiereetmoi.api.rating;
+package com.mabiereetmoi.api.comment;
 
-import com.mabiereetmoi.api.beer.Beer;
-import com.mabiereetmoi.api.comment.Comment;
-import com.mabiereetmoi.api.comment.CommentDto;
+import com.mabiereetmoi.api.rating.Rating;
 import com.mabiereetmoi.api.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RatingDto {
+public class CommentDto {
 
+    private Long idComment;
     private User user;
-    private Beer beer;
-    private List<CommentDto> comments;
+    private Rating rating;
     private Set<User> like;
-    private Double rating;
-    private String message;
     private Long createdAt;
+    private String message;
 
     private int nbLike;
     private boolean alreadyLike;
