@@ -46,4 +46,9 @@ public class RatingService {
         return ratingRepository.findAllByBeerIdBeer(beerId);
     }
 
+    public List<Rating> getRatingsByUserUid(String uid) {
+        return ratingRepository.findAllByUserUid(uid);
+    }
+
+
 }

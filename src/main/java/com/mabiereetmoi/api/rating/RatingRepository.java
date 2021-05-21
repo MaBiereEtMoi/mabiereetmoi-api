@@ -14,4 +14,6 @@ public interface RatingRepository extends CrudRepository<Rating, RatingId> {
 
     List<Rating> findAllByBeerIdBeer(Long beerId);
 
+    List<Rating> findAllByUserUid(String uid);
+
 }
