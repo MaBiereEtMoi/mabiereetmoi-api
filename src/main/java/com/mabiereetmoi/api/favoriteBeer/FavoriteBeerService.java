@@ -29,6 +29,10 @@ public class FavoriteBeerService {
         return favoriteBeerRepository.findAllByUserUid(uid).stream().map(FavoriteBeer::getBeer).collect(Collectors.toList());
     }
 
+    public int countAllByUserUid(String uid){
+        return favoriteBeerRepository.countAllByUserUid(uid);
+    }
+
     public Integer getNbFavorite(Long beerId) {
         return favoriteBeerRepository.countAllByBeer_IdBeer(beerId);
     }

@@ -1,8 +1,4 @@
 package com.mabiereetmoi.api.user;
-
-import com.mabiereetmoi.api.beer.Beer;
-import com.mabiereetmoi.api.researchUser.SearchCriteria;
-import com.mabiereetmoi.api.researchUser.UserSpecification;
 import com.mabiereetmoi.api.security.SecurityService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,13 +15,14 @@ public class UserController {
 
     private final UserService userService;
     private final SecurityService securityService;
+    private final UserDetailConverter userDetailConverter;
 
     @PostMapping
     public ResponseEntity<User> saveUser(@RequestBody User user) {
         User userSecurity = securityService.getUser();
         if (user.getUid().equals(userSecurity.getUid())) {
             return ResponseEntity.ok(userService.saveUser(user));
-        }else {
+        } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
@@ -38,8 +35,13 @@ public class UserController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<User>> searchByUsername(@RequestParam String search){
+    public ResponseEntity<List<User>> searchByUsername(@RequestParam String search) {
         return ResponseEntity.ok(userService.searchByUsername(search));
+    }
+
+    @GetMapping("/{uid}")
+    public ResponseEntity<UserDetailDto> getUserById(@PathVariable String uid) throws UserNotFoundException {
+        return ResponseEntity.ok(userDetailConverter.entityToDto(userService.findByUid(uid)));
     }
 
 }

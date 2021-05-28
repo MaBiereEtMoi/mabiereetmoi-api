@@ -19,4 +19,8 @@ public class HistorisationService {
         return historisationRepository.findAllByUserUid(uid);
     }
 
+    public int countAllByUserUid(String uid){
+        return historisationRepository.countAllByUserUid(uid);
+    }
+
 }

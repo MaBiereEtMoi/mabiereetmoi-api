@@ -12,4 +12,6 @@ public interface FavoriteBeerRepository extends CrudRepository<FavoriteBeer, Fav
 
     Integer countAllByBeer_IdBeer(Long beerId);
 
+    int countAllByUserUid(String uid);
+
 }

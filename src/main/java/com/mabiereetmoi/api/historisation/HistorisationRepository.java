@@ -10,4 +10,5 @@ public interface HistorisationRepository extends CrudRepository<Historisation, L
 
     List<Historisation> findAllByUserUid(String uid);
 
+    int countAllByUserUid(String uid);
 }
