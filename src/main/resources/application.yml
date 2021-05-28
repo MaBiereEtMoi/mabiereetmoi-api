@@ -61,5 +61,6 @@ security:
     - /favicon.ico
     - /session/login
     - /public/**
+    - /storage/**
   exposed-headers:
     - X-Xsrf-Token

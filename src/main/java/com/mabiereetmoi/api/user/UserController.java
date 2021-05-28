@@ -2,9 +2,11 @@ package com.mabiereetmoi.api.user;
 
 import com.mabiereetmoi.api.beer.Beer;
 import com.mabiereetmoi.api.security.SecurityService;
+import com.mabiereetmoi.api.storage.StorageService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
@@ -15,6 +17,7 @@ public class UserController {
 
     private final UserService userService;
     private final SecurityService securityService;
+    private final StorageService storageService;
 
     @PostMapping
     public ResponseEntity<User> saveUser(@RequestBody User user) {
