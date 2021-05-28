@@ -1,11 +1,15 @@
 package com.mabiereetmoi.api.user;
 
 import com.mabiereetmoi.api.beer.Beer;
+import com.mabiereetmoi.api.researchUser.SearchCriteria;
+import com.mabiereetmoi.api.researchUser.UserSpecification;
 import com.mabiereetmoi.api.security.SecurityService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -31,6 +35,11 @@ public class UserController {
         User userSecurity = securityService.getUser();
         User user = userService.findByUid(userSecurity.getUid());
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<User>> searchByUsername(@RequestParam String search){
+        return ResponseEntity.ok(userService.searchByUsername(search));
     }
 
 }
