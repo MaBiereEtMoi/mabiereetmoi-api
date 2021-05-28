@@ -1,6 +1,7 @@
 package com.mabiereetmoi.api.config;
 
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.storage.StorageOptions;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.mabiereetmoi.api.security.SecurityProperties;
@@ -33,7 +34,9 @@ public class FirebaseConfig {
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(inputStream))
                     .build();
-
+           //StorageOptions storageOptions = StorageOptions.newBuilder()
+            //        .setCredentials(GoogleCredentials.fromStream(inputStream))
+             //       .setProjectId("mabiereetmoi").build();
             if (FirebaseApp.getApps().isEmpty()) {
                 FirebaseApp.initializeApp(options);
             }
