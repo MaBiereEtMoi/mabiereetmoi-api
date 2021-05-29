@@ -80,7 +80,7 @@ public class StorageService {
     public FileDto uploadFile(MultipartFile multipartFile) throws IOException {
         File file = convertMultiPartToFile(multipartFile);
         Path filePath = file.toPath();
-        String objectName = generateFileName(multipartFile);
+        String objectName = generateFileName();
 
         Map<String, String> map = new HashMap<>();
         map.put("firebaseStorageDownloadTokens", objectName);
