@@ -2,6 +2,7 @@ package com.mabiereetmoi.api.storage;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.ReadChannel;
+import com.mabiereetmoi.api.security.SecurityService;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +37,7 @@ public class StorageService {
     private final Logger log = LoggerFactory.getLogger(StorageService.class);
     private String bucketName;
     private StorageOptions storageOptions;
+    private SecurityService securityService;
 
     @PostConstruct
     private void initializeFirebase() throws Exception {
@@ -111,8 +113,8 @@ public class StorageService {
         return convertedFile;
     }
 
-    private String generateFileName(MultipartFile multiPart) {
-        return new Date().getTime() + "-" + Objects.requireNonNull(multiPart.getOriginalFilename()).replace(" ", "_");
+    private String generateFileName() {
+        return new Date().getTime() + "-" + securityService.getUser().getUid();
     }
 
 }

@@ -1,11 +1,14 @@
 package com.mabiereetmoi.api.user;
 import com.mabiereetmoi.api.security.SecurityService;
+import com.mabiereetmoi.api.storage.FileDto;
 import com.mabiereetmoi.api.storage.StorageService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @CrossOrigin
@@ -27,6 +30,14 @@ public class UserController {
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
+    }
+
+    @PostMapping("/pictureProfil")
+    public ResponseEntity<UserDetailDto> changePictureProfil(@RequestParam("file") MultipartFile file) throws IOException, UserNotFoundException {
+        FileDto fileDto = storageService.uploadFile(file);
+        User user = userService.findByUid(securityService.getUser().getUid());
+        user.setPicture(fileDto.getFileName());
+        return ResponseEntity.ok(userDetailConverter.entityToDto(userService.saveUser(user)));
     }
 
     @GetMapping("/me")
