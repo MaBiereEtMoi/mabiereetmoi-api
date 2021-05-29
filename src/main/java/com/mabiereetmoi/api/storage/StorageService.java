@@ -3,6 +3,7 @@ package com.mabiereetmoi.api.storage;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.ReadChannel;
 import com.mabiereetmoi.api.security.SecurityService;
+import lombok.AllArgsConstructor;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,12 +33,13 @@ import com.google.cloud.storage.*;
 
 
 @Service
+@AllArgsConstructor
 public class StorageService {
 
     private final Logger log = LoggerFactory.getLogger(StorageService.class);
     private String bucketName;
     private StorageOptions storageOptions;
-    private SecurityService securityService;
+    private final SecurityService securityService;
 
     @PostConstruct
     private void initializeFirebase() throws Exception {
