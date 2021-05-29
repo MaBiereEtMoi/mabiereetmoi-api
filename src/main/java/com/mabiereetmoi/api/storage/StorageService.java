@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
@@ -33,13 +34,11 @@ import com.google.cloud.storage.*;
 
 
 @Service
-@AllArgsConstructor
 public class StorageService {
 
     private final Logger log = LoggerFactory.getLogger(StorageService.class);
     private String bucketName;
     private StorageOptions storageOptions;
-    private final SecurityService securityService;
 
     @PostConstruct
     private void initializeFirebase() throws Exception {
@@ -116,7 +115,7 @@ public class StorageService {
     }
 
     private String generateFileName() {
-        return new Date().getTime() + "-" + securityService.getUser().getUid();
+        return new Date().getTime() + "-" + "avatar";
     }
 
 }
