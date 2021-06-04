@@ -1,5 +1,6 @@
 package com.mabiereetmoi.api.user;
 
+import com.mabiereetmoi.api.badge.Badge;
 import com.mabiereetmoi.api.beer.Beer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,5 +33,8 @@ public class User {
 
     @OneToMany
     private List<Beer> beersFavorite;
+
+    @OneToMany
+    private List<Badge> badges;
 
 }
