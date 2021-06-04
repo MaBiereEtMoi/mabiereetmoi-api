@@ -23,6 +23,8 @@ public class Badge {
     @ManyToOne
     private CategoryBadge category;
 
+    private String description;
+
     @Lob
     @Column
     private byte[] image;
