@@ -32,6 +32,7 @@ public class BeerConverter implements AbstractConverter<Beer, BeerDto> {
                 .category(entity.getCategory())
                 .ratings(ratingConverter.listEntityToDto(ratingService.getRatingsByBeer(entity.getIdBeer())))
                 .createDate(entity.getCreateDate())
+                .picture(entity.getPicture())
                 .degreeAlcohol(entity.getDegreeAlcohol())
                 .idBeer(entity.getIdBeer())
                 .description(entity.getDescription())

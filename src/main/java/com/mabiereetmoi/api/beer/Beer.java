@@ -19,6 +19,8 @@ public class Beer {
 
     private String nameBeer;
 
+    private String picture;
+
     private Double note_avg;
 
     private Double degreeAlcohol;

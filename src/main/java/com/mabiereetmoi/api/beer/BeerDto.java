@@ -18,6 +18,7 @@ public class BeerDto {
     private Long idBeer;
     private String nameBeer;
     private List<RatingDto> ratings;
+    private String picture;
     private Double note_avg;
     private Double degreeAlcohol;
     private String description;
