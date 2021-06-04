@@ -1,5 +1,6 @@
 package com.mabiereetmoi.api.user;
 
+import com.mabiereetmoi.api.beer.BeerConverter;
 import com.mabiereetmoi.api.converter.AbstractConverter;
 import com.mabiereetmoi.api.favoriteBeer.FavoriteBeerService;
 import com.mabiereetmoi.api.historisation.HistorisationService;
@@ -17,6 +18,7 @@ public class UserDetailConverter implements AbstractConverter<User, UserDetailDt
     private final HistorisationService historisationService;
     private final FavoriteBeerService favoriteBeerService;
     private final RatingService ratingService;
+    private final BeerConverter beerConverter;
     private final RatingConverter ratingConverter;
 
     @Override
@@ -35,7 +37,7 @@ public class UserDetailConverter implements AbstractConverter<User, UserDetailDt
                 .nbBadge(0)
                 .nbFavorite(favoriteBeerService.countAllByUserUid(entity.getUid()))
                 .ratings(ratingConverter.listEntityToDto(ratingService.getRatingsByUserUid(entity.getUid())))
-                .favoriteBeers(favoriteBeerService.getFavorites(entity.getUid()))
+                .favoriteBeers(beerConverter.listEntityToDto(favoriteBeerService.getFavorites(entity.getUid())))
                 .scannedBeers(historisationService.getHistorisationByUser(entity.getUid()))
                 .build();
     }

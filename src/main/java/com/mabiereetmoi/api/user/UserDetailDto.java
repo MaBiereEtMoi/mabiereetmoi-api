@@ -1,6 +1,7 @@
 package com.mabiereetmoi.api.user;
 
 import com.mabiereetmoi.api.beer.Beer;
+import com.mabiereetmoi.api.beer.BeerDto;
 import com.mabiereetmoi.api.favoriteBeer.FavoriteBeer;
 import com.mabiereetmoi.api.historisation.Historisation;
 import com.mabiereetmoi.api.rating.RatingDto;
@@ -25,6 +26,6 @@ public class UserDetailDto {
     private int nbFavorite;
     private int nbBadge;
     private List<Historisation> scannedBeers;
-    private List<Beer> favoriteBeers;
+    private List<BeerDto> favoriteBeers;
     private List<RatingDto> ratings;
 }
