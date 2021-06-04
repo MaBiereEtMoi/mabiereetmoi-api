@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BadgeRepository extends CrudRepository<Badge,Long> {
+    Badge findByNameEquals(String name);
 }

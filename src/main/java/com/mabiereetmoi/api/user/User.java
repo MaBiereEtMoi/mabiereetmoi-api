@@ -7,10 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -30,9 +27,6 @@ public class User {
     private String picture;
     private String issuer;
     private boolean emailVerified;
-
-    @OneToMany
-    private List<Beer> beersFavorite;
 
     @OneToMany
     private List<Badge> badges;

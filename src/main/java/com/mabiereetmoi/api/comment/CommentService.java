@@ -41,4 +41,8 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
+    public int getNbComment(String uid){
+        return commentRepository.countAllByUser_Uid(uid);
+    }
+
 }

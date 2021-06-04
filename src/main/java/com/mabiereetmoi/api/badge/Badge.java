@@ -1,6 +1,7 @@
 package com.mabiereetmoi.api.badge;
 
 import com.mabiereetmoi.api.badge.categoryBadge.CategoryBadge;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Data
 @Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Badge {
     @Id
     @GeneratedValue
@@ -19,7 +21,7 @@ public class Badge {
     private String name;
 
     @ManyToOne
-    private CategoryBadge category;;
+    private CategoryBadge category;
 
     @Lob
     @Column
