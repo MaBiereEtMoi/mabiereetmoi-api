@@ -78,30 +78,28 @@ public class StorageService {
 
     }
 
-    public FileDto uploadFile(MultipartFile multipartFile) throws IOException {
+    public FileDto uploadFile(MultipartFile multipartFile, String folderName, String fileName) throws IOException {
         File file = convertMultiPartToFile(multipartFile);
         Path filePath = file.toPath();
-        String objectName = generateFileName();
 
         Map<String, String> map = new HashMap<>();
-        map.put("firebaseStorageDownloadTokens", objectName);
+        map.put("firebaseStorageDownloadTokens", fileName);
         Storage storage = storageOptions.getService();
 
-        BlobId blobId = BlobId.of(bucketName, objectName);
+        BlobId blobId = BlobId.of(bucketName,  folderName + "/" + fileName);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId)
                 .setMetadata(map)
                 .setContentType(multipartFile.getContentType()).build();
         Blob blob = storage.create(blobInfo, Files.readAllBytes(filePath));
 
-        log.info("File " + filePath + " uploaded to bucket " + bucketName + " as " + objectName);
-        String[] uploadedFile = new String[]{"fileUrl", objectName};
+        log.info("File " + filePath + " uploaded to bucket " + bucketName + " as " + fileName);
+        String[] uploadedFile = new String[]{"fileUrl", fileName};
         String fileDownloadUri = uploadedFile[0];
-        String fileName = uploadedFile[1];
         log.info("fileDownloadUri, {0}" + fileDownloadUri);
         log.info("filename, {0}" + fileName);
 
         return new FileDto(
-                objectName,
+                fileName,
                 multipartFile.getContentType(),
                 blob.getMediaLink(), multipartFile.getSize());
     }

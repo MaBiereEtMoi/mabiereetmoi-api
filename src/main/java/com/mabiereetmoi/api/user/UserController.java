@@ -34,7 +34,7 @@ public class UserController {
 
     @PostMapping("/pictureProfil")
     public ResponseEntity<UserDetailDto> changePictureProfil(@RequestParam("file") MultipartFile file) throws IOException, UserNotFoundException {
-        FileDto fileDto = storageService.uploadFile(file);
+        FileDto fileDto = storageService.uploadFile(file, "picture_profile", securityService.getUser().getUid() + "-avatar");
         User user = userService.findByUid(securityService.getUser().getUid());
         user.setPicture(fileDto.getFileName());
         return ResponseEntity.ok(userDetailConverter.entityToDto(userService.saveUser(user)));
