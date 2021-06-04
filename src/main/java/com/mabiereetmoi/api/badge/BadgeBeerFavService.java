@@ -1,6 +1,5 @@
 package com.mabiereetmoi.api.badge;
 
-import com.mabiereetmoi.api.badge.categoryBadge.BadgeService;
 import com.mabiereetmoi.api.favoriteBeer.FavoriteBeerService;
 import com.mabiereetmoi.api.user.UserNotFoundException;
 import lombok.AllArgsConstructor;

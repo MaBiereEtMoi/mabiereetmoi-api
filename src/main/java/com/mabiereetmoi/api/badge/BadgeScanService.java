@@ -1,8 +1,6 @@
 package com.mabiereetmoi.api.badge;
 
-import com.mabiereetmoi.api.badge.categoryBadge.BadgeService;
 import com.mabiereetmoi.api.historisation.HistorisationService;
-import com.mabiereetmoi.api.user.User;
 import com.mabiereetmoi.api.user.UserNotFoundException;
 import com.mabiereetmoi.api.user.UserService;
 import lombok.AllArgsConstructor;

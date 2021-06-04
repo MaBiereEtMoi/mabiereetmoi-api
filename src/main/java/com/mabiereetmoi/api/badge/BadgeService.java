@@ -1,4 +1,4 @@
-package com.mabiereetmoi.api.badge.categoryBadge;
+package com.mabiereetmoi.api.badge;
 
 import com.mabiereetmoi.api.badge.Badge;
 import com.mabiereetmoi.api.badge.BadgeRepository;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 @Service
 @AllArgsConstructor
-public abstract class BadgeService {
+public class BadgeService {
 
     private BadgeRepository badgeRepository;
 
