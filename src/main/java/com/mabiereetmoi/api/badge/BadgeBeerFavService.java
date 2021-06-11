@@ -23,6 +23,8 @@ public class BadgeBeerFavService {
         badges_levels.put(1,"Mon premier flocon!");
         badges_levels.put(10,"Amateur de bon goût!");
         badges_levels.put(20,"Des étoiles pleins les verres!");
+        badges_levels.put(50,"Groupie");
+        badges_levels.put(100,"Fan de la première heure");
     }
 
     private int getNbBeerFav(String userId){

@@ -26,9 +26,9 @@ values(7, 'Amateur de bon goût!', 'FAVOURITE', 'Bravo tu as liké ta 10ème bi�
 insert into badge (id, name, category_name, description)
 values(8, 'Des étoiles pleins les verres!', 'FAVOURITE', 'Bravo tu as liké ta 20ème bière !');
 insert into badge (id, name, category_name, description)
-values(9, '', 'FAVOURITE', 'Bravo tu as liké ta 50ème bière !');
+values(9, 'Groupie', 'FAVOURITE', 'Bravo tu as liké ta 50ème bière !');
 insert into badge (id, name, category_name, description)
-values(10, '', 'FAVOURITE', 'Bravo tu as liké ta 100ème bière !');
+values(10, 'Fan de la première heure', 'FAVOURITE', 'Bravo tu as liké ta 100ème bière !');
 
 
 -- Scan
