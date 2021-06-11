@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -17,6 +18,10 @@ public class BadgeService {
     private BadgeRepository badgeRepository;
 
     private UserService userService;
+
+    public List<Badge> getAllBadges(){
+        return badgeRepository.findAll();
+    }
 
     public Badge getBadgeByName(String name){
         return badgeRepository.findByNameEquals(name);
