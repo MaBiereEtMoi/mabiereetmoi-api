@@ -1,5 +1,6 @@
 package com.mabiereetmoi.api.user;
 
+import com.mabiereetmoi.api.badge.BadgeService;
 import com.mabiereetmoi.api.beer.BeerConverter;
 import com.mabiereetmoi.api.converter.AbstractConverter;
 import com.mabiereetmoi.api.favoriteBeer.FavoriteBeerService;
@@ -39,6 +40,7 @@ public class UserDetailConverter implements AbstractConverter<User, UserDetailDt
                 .ratings(ratingConverter.listEntityToDto(ratingService.getRatingsByUserUid(entity.getUid())))
                 .favoriteBeers(beerConverter.listEntityToDto(favoriteBeerService.getFavorites(entity.getUid())))
                 .scannedBeers(historisationService.getHistorisationByUser(entity.getUid()))
+                .badges(entity.getBadges())
                 .build();
     }
 
