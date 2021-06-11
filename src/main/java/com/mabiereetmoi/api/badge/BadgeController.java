@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/badge")
 @AllArgsConstructor
@@ -17,6 +19,12 @@ public class BadgeController {
     private final BadgeCommentService badgeCommentService;
     private final BadgeAddBeerService badgeAddBeerService;
     private final BadgeBeerFavService badgeBeerFavService;
+    private final BadgeService badgeService;
+
+    @GetMapping
+    public ResponseEntity<List<Badge>> getAllBadges(){
+        return ResponseEntity.ok(badgeService.getAllBadges());
+    }
 
     @GetMapping("/checkScanBadges")
     public ResponseEntity<Badge> getBadgeScanIfUnlocked(@RequestParam String userId) throws UserNotFoundException {
