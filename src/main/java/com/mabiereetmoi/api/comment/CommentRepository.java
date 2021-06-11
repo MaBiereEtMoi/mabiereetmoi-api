@@ -10,4 +10,6 @@ public interface CommentRepository extends CrudRepository<Comment,Long> {
 
     List<Comment> findAllByRating(Rating rating);
 
+    int countAllByUser_Uid(String uid);
+
 }
