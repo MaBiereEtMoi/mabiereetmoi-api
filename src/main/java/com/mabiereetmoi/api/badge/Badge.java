@@ -25,7 +25,8 @@ public class Badge {
 
     private String description;
 
-    @Lob
-    @Column
-    private byte[] image;
+    private String image;
+
+    private String imageGrey;
+
 }
