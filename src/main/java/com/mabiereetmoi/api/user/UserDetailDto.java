@@ -29,4 +29,5 @@ public class UserDetailDto {
     private List<Beer> favoriteBeers;
     private List<RatingDto> ratings;
     private List<Badge> badges;
+    private Boolean isAdmin;
 }

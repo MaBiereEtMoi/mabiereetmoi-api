@@ -39,6 +39,7 @@ public class UserDetailConverter implements AbstractConverter<User, UserDetailDt
                 .favoriteBeers(favoriteBeerService.getFavorites(entity.getUid()))
                 .scannedBeers(historisationService.getHistorisationByUser(entity.getUid()))
                 .badges(entity.getBadges())
+                .isAdmin(entity.getIsAdmin())
                 .build();
     }
 
