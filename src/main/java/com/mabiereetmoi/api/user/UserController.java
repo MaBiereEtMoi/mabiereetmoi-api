@@ -30,6 +30,7 @@ public class UserController {
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
+
     }
 
     @PostMapping("/pictureProfil")
